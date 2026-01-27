@@ -1,6 +1,23 @@
 const el = (id) => document.getElementById(id);
 const tasksEl = document.getElementById("tasks");
 
+function stateIcon(state) {
+  switch (state) {
+    case "Running":
+      return "▶";
+    case "Ready":
+      return "●";
+    case "Waiting":
+      return "○";
+    case "Blocked":
+      return "■";
+    case "Suspended":
+      return "✕";
+    default:
+      return "?";
+  }
+}
+
 function formatNumber(n) {
   return typeof n === "number" ? n.toLocaleString() : "-";
 }
@@ -21,7 +38,7 @@ function render(data) {
     const div = document.createElement("div");
     div.className = "task";
     const name = document.createElement("span");
-    name.textContent = `${t.name} (${t.state})`;
+    name.textContent = `${stateIcon(t.state)} ${t.name}`;
     const pri = document.createElement("span");
     pri.textContent = `P:${t.priority}`;
     const step = document.createElement("span");
@@ -36,7 +53,7 @@ function render(data) {
     const div = document.createElement("div");
     div.className = "task";
     const name = document.createElement("span");
-    name.textContent = `${data.idle.name} (${data.idle.state})`;
+    name.textContent = `${stateIcon(data.idle.state)} ${data.idle.name}`;
     const pri = document.createElement("span");
     pri.textContent = "Idle";
     const step = document.createElement("span");

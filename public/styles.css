@@ -18,7 +18,7 @@ body {
 }
 
 .panel {
-  width: 360px;
+  width: 440px;
   margin: 24px;
   padding: 14px 16px;
   border: 2px solid rgba(255, 255, 255, 0.6);
@@ -57,7 +57,7 @@ body {
 
 .task {
   display: grid;
-  grid-template-columns: 1fr 50px 60px 60px;
+  grid-template-columns: 1fr 60px 70px 70px;
   gap: 8px;
   margin: 2px 0;
   color: var(--muted);
@@ -65,4 +65,5 @@ body {
 
 .task span:first-child {
   color: var(--text);
+  white-space: nowrap;
 }
