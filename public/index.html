@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RTOS Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="panel">
+      <div class="title">RTOS Dashboard</div>
+
+      <div class="section">
+        <div class="section-title">=== Kernel Status ===</div>
+        <div class="row"><span>State:</span><span id="state">-</span></div>
+        <div class="row"><span>Ticks:</span><span id="ticks">-</span></div>
+        <div class="row"><span>Virtual Time:</span><span id="vtime">-</span></div>
+        <div class="row"><span>CPU Utilization:</span><span id="cpu">-</span></div>
+        <div class="row"><span>Idle Time:</span><span id="idle">-</span></div>
+        <div class="row"><span>Ready Queue:</span><span id="ready">-</span></div>
+        <div class="row"><span>Context Switches:</span><span id="ctx">-</span></div>
+        <div class="row"><span>Current Task:</span><span id="current">-</span></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">=== Task List ===</div>
+        <div id="tasks"></div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

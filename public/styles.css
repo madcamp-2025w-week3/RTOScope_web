@@ -1,0 +1,68 @@
+:root {
+  --bg: #0b0f14;
+  --panel: rgba(25, 35, 50, 0.75);
+  --text: #e9f2ff;
+  --muted: #b4c2d3;
+  --accent: #e3f2ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 20% 10%, #1d2a3b 0%, #0b0f14 60%);
+  font-family: "Menlo", "Consolas", "Liberation Mono", monospace;
+  color: var(--text);
+}
+
+.panel {
+  width: 360px;
+  margin: 24px;
+  padding: 14px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  background: var(--panel);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.section {
+  margin-top: 12px;
+}
+
+.section-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+  color: var(--muted);
+}
+
+#tasks {
+  margin-top: 6px;
+}
+
+.task {
+  display: grid;
+  grid-template-columns: 1fr 50px 60px 60px;
+  gap: 8px;
+  margin: 2px 0;
+  color: var(--muted);
+}
+
+.task span:first-child {
+  color: var(--text);
+}
