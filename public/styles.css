@@ -165,3 +165,41 @@ body {
   height: 12px;
   border-radius: 2px;
 }
+
+/* Image Container */
+.image-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.dashboard-image {
+  height: auto;
+  border-radius: 8px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  object-fit: contain;
+}
+
+.main-image {
+  max-height: 300px;
+  max-width: 40%;
+}
+
+.sub-image {
+  max-height: 220px;
+  max-width: 25%;
+  filter: brightness(0.8);
+}
+
+.dashboard-image:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: brightness(1.2);
+  z-index: 10;
+}
