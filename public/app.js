@@ -47,6 +47,9 @@ function getMissClass(count) {
 }
 
 function render(data) {
+  // Scheduler name display
+  el("scheduler").textContent = data.schedulerName ?? "-";
+
   // Kernel status
   el("state").textContent = data.state ?? "-";
   el("ticks").textContent = formatNumber(data.ticks);
@@ -110,8 +113,19 @@ function render(data) {
     tasksEl.appendChild(div);
   }
 
-  // Update Gantt history
+  // Update Gantt history - DETECT GAME RESTART
   if (data.currentTaskName && data.virtualTime != null) {
+    // Detect game restart: if new virtualTime is much smaller than last recorded
+    if (startTime !== null && data.virtualTime < 1.0 && ganttHistory.length > 0) {
+      const lastTime = ganttHistory[ganttHistory.length - 1].time + startTime;
+      if (lastTime > 5.0) {
+        // Game restarted - clear history
+        ganttHistory.length = 0;
+        startTime = null;
+        console.log("[Dashboard] Game restart detected, resetting Gantt chart");
+      }
+    }
+
     if (startTime === null) startTime = data.virtualTime;
     const relTime = data.virtualTime - startTime;
     ganttHistory.push({ time: relTime, taskName: data.currentTaskName });

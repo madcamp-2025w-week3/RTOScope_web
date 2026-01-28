@@ -66,6 +66,18 @@ body {
   color: var(--muted);
 }
 
+.scheduler-row {
+  background: rgba(33, 150, 243, 0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.scheduler-name {
+  color: #2196f3;
+  font-weight: bold;
+}
+
 #tasks {
   margin-top: 6px;
 }
