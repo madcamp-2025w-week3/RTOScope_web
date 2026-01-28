@@ -7,24 +7,44 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="panel">
-      <div class="title">RTOS Dashboard</div>
+    <div class="container">
+      <!-- Kernel Status Panel -->
+      <div class="panel">
+        <div class="title">RTOS Dashboard</div>
 
-      <div class="section">
-        <div class="section-title">=== Kernel Status ===</div>
-        <div class="row"><span>State:</span><span id="state">-</span></div>
-        <div class="row"><span>Ticks:</span><span id="ticks">-</span></div>
-        <div class="row"><span>Virtual Time:</span><span id="vtime">-</span></div>
-        <div class="row"><span>CPU Utilization:</span><span id="cpu">-</span></div>
-        <div class="row"><span>Idle Time:</span><span id="idle">-</span></div>
-        <div class="row"><span>Ready Queue:</span><span id="ready">-</span></div>
-        <div class="row"><span>Context Switches:</span><span id="ctx">-</span></div>
-        <div class="row"><span>Current Task:</span><span id="current">-</span></div>
+        <div class="section">
+          <div class="section-title">=== Kernel Status ===</div>
+          <div class="row"><span>State:</span><span id="state">-</span></div>
+          <div class="row"><span>Ticks:</span><span id="ticks">-</span></div>
+          <div class="row"><span>Virtual Time:</span><span id="vtime">-</span></div>
+          <div class="row"><span>CPU Utilization:</span><span id="cpu">-</span></div>
+          <div class="row"><span>Idle Time:</span><span id="idle">-</span></div>
+          <div class="row"><span>Ready Queue:</span><span id="ready">-</span></div>
+          <div class="row"><span>Context Switches:</span><span id="ctx">-</span></div>
+          <div class="row"><span>Current Task:</span><span id="current">-</span></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">=== Task List ===</div>
+          <div class="task-header">
+            <span>Task</span>
+            <span>P</span>
+            <span>Step</span>
+            <span>Period</span>
+            <span>CPU%</span>
+            <span>Miss</span>
+          </div>
+          <div id="tasks"></div>
+        </div>
       </div>
 
-      <div class="section">
-        <div class="section-title">=== Task List ===</div>
-        <div id="tasks"></div>
+      <!-- Gantt Chart Panel -->
+      <div class="panel gantt-panel">
+        <div class="title">Gantt Chart (Last 10s)</div>
+        <div class="gantt-container">
+          <canvas id="ganttChart" width="600" height="300"></canvas>
+        </div>
+        <div class="gantt-legend" id="ganttLegend"></div>
       </div>
     </div>
 

@@ -1,9 +1,13 @@
 :root {
   --bg: #0b0f14;
-  --panel: rgba(25, 35, 50, 0.75);
+  --panel: rgba(25, 35, 50, 0.85);
   --text: #e9f2ff;
   --muted: #b4c2d3;
   --accent: #e3f2ff;
+  --green: #4caf50;
+  --yellow: #ffc107;
+  --red: #f44336;
+  --blue: #2196f3;
 }
 
 * {
@@ -17,14 +21,25 @@ body {
   color: var(--text);
 }
 
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 24px;
+}
+
 .panel {
-  width: 440px;
-  margin: 24px;
+  min-width: 420px;
   padding: 14px 16px;
   border: 2px solid rgba(255, 255, 255, 0.6);
   border-radius: 10px;
   background: var(--panel);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.gantt-panel {
+  min-width: 640px;
+  flex: 1;
 }
 
 .title {
@@ -55,15 +70,86 @@ body {
   margin-top: 6px;
 }
 
+.task-header {
+  display: grid;
+  grid-template-columns: 1fr 40px 70px 60px 55px 50px;
+  gap: 6px;
+  font-weight: bold;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
 .task {
   display: grid;
-  grid-template-columns: 1fr 60px 70px 70px;
-  gap: 8px;
+  grid-template-columns: 1fr 40px 70px 60px 55px 50px;
+  gap: 6px;
   margin: 2px 0;
   color: var(--muted);
+  font-size: 12px;
 }
 
 .task span:first-child {
   color: var(--text);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cpu-bar {
+  display: inline-block;
+  height: 10px;
+  background: var(--blue);
+  border-radius: 2px;
+}
+
+.miss-count {
+  font-weight: bold;
+}
+
+.miss-count.high {
+  color: var(--red);
+}
+
+.miss-count.medium {
+  color: var(--yellow);
+}
+
+.miss-count.low {
+  color: var(--green);
+}
+
+/* Gantt Chart */
+.gantt-container {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+#ganttChart {
+  width: 100%;
+  height: 300px;
+}
+
+.gantt-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  font-size: 11px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
 }
